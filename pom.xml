@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sprintmodus</groupId>
 	<artifactId>common-lib</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>common-lib</name>
 	<description/>
 	<url/>
@@ -26,8 +26,15 @@
 		<tag/>
 		<url/>
 	</scm>
+	<distributionManagement>
+		<!-- Released by .github/workflows/publish.yml on a v<version> tag; the package takes this repository's visibility -->
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/GDB-11/sprintmodus-common-lib</url>
+		</repository>
+	</distributionManagement>
 	<properties>
-		<java.version>27</java.version>
+		<java.version>26</java.version>
 		<jjwt.version>0.12.6</jjwt.version>
 	</properties>
 	<dependencies>

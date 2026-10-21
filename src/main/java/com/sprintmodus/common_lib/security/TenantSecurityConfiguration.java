@@ -61,6 +61,8 @@ public class TenantSecurityConfiguration {
 								HttpStatus.FORBIDDEN.value(), "FORBIDDEN", "You do not have permission to do this.")))
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers("/error").permitAll()
+						// the container health check has no token; only the health group is exposed (management.endpoints.web.exposure)
+						.requestMatchers("/actuator/health/**").permitAll()
 						.requestMatchers("/api/**").authenticated()
 						.anyRequest().denyAll())
 				.addFilterBefore(filter, AuthorizationFilter.class)
